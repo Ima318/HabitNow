@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <!-- App Palette -->
+    <color name="teal_primary">#4DB6AC</color>
+    <color name="mint_primary">#81C784</color>
+    <color name="soft_orange_secondary">#FFB74D</color>
+    <color name="peach_secondary">#FFAB91</color>
+    <color name="sky_blue_accent">#64B5F6</color>
+    <color name="off_white_bg">#F9FAFB</color>
+    <color name="light_gray_bg">#ECEFF1</color>
+    <color name="dark_text">#263238</color><!-- Mood Journal styling -->
+    <color name="purple_accent">#B39DDB</color>
+    <color name="purple_primary">#7986CB</color>
+    <color name="lavender_chip">#EDE7F6</color>
+    <!-- Dark Theme Colors -->
+    <color name="dark_bg">#121212</color>
+    <color name="dark_surface">#1E1E1E</color>
+    <color name="dark_card_bg">#2D2D2D</color>
+    <color name="light_text">#FFFFFF</color>
+    <color name="light_text_secondary">#B0B0B0</color>
+    <color name="dark_teal_primary">#26A69A</color>
+    <color name="dark_soft_orange">#FF9800</color>
+    <color name="dark_sky_blue">#42A5F5</color>
+    <color name="dark_peach">#FF8A65</color><!-- Theme-adaptive colors -->
+    <color name="adaptive_background">?android:colorBackground</color>
+    <color name="adaptive_surface">?colorSurface</color>
+    <color name="adaptive_text">?android:textColor</color>
+    <color name="adaptive_text_secondary">?android:textColorSecondary</color>
+</resources>

@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/hydration_root"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/off_white_bg"
+	tools:context=".HydrationActivity">
+
+	<include
+		android:id="@+id/top_nav_include"
+		layout="@layout/include_top_nav"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent" />
+
+	<ScrollView
+		android:id="@+id/scroll_view"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:fillViewport="true"
+		app:layout_constraintTop_toBottomOf="@id/top_nav_include"
+		app:layout_constraintBottom_toTopOf="@id/bottom_nav"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+			<TextView
+				android:id="@+id/text_title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="24dp"
+				android:layout_marginTop="24dp"
+				android:layout_marginEnd="24dp"
+				android:fontFamily="@font/adlam_display"
+				android:text="Hydration"
+				android:textColor="@color/material_dynamic_primary50"
+				android:textSize="22sp"
+				android:textStyle="bold" />
+
+			<!-- Daily Goal Card -->
+			<LinearLayout
+				android:id="@+id/card_daily_goal"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="24dp"
+				android:layout_marginTop="16dp"
+				android:layout_marginEnd="24dp"
+				android:background="@drawable/bg_card"
+				android:orientation="vertical"
+				android:padding="16dp">
+
+				<TextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="Today's Progress"
+					android:textColor="@color/dark_text"
+					android:textSize="18sp"
+					android:textStyle="bold"
+					android:layout_marginBottom="12dp" />
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:gravity="center_vertical"
+					android:layout_marginBottom="8dp">
+
+					<ImageView
+						android:layout_width="32dp"
+						android:layout_height="32dp"
+						android:src="@drawable/ic_water"
+						android:layout_marginEnd="12dp" />
+
+					<TextView
+						android:id="@+id/text_intake_amount"
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:text="0 ml / 2000 ml"
+						android:textColor="@color/dark_text"
+						android:textSize="16sp"
+						android:textStyle="bold" />
+
+					<TextView
+						android:id="@+id/text_percentage"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="0%"
+						android:textColor="@color/sky_blue_accent"
+						android:textSize="14sp"
+						android:textStyle="bold" />
+
+				</LinearLayout>
+
+				<ProgressBar
+					android:id="@+id/progress_hydration"
+					style="@android:style/Widget.ProgressBar.Horizontal"
+					android:layout_width="match_parent"
+					android:layout_height="12dp"
+					android:max="100"
+					android:progress="0"
+					android:progressTint="@color/sky_blue_accent" />
+
+			</LinearLayout>
+
+			<!-- Volume Selection Card -->
+			<LinearLayout
+				android:id="@+id/card_volume_selection"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="24dp"
+				android:layout_marginTop="16dp"
+				android:layout_marginEnd="24dp"
+				android:background="@drawable/bg_card"
+				android:orientation="vertical"
+				android:padding="16dp">
+
+				<TextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="Add Water Intake"
+					android:textColor="@color/dark_text"
+					android:textSize="18sp"
+					android:textStyle="bold"
+					android:layout_marginBottom="12dp" />
+
+				<GridLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:columnCount="2"
+					android:rowCount="3">
+
+					<Button
+						android:id="@+id/btn_250ml"
+						android:layout_width="0dp"
+						android:layout_height="80dp"
+						android:layout_columnWeight="1"
+						android:layout_margin="4dp"
+						android:backgroundTint="@color/sky_blue_accent"
+						android:text="250ml\n🥤"
+						android:textColor="@color/white"
+						android:textSize="14sp" />
+
+					<Button
+						android:id="@+id/btn_500ml"
+						android:layout_width="0dp"
+						android:layout_height="80dp"
+						android:layout_columnWeight="1"
+						android:layout_margin="4dp"
+						android:backgroundTint="@color/teal_primary"
+						android:text="500ml\n🍺"
+						android:textColor="@color/white"
+						android:textSize="14sp" />
+
+					<Button
+						android:id="@+id/btn_750ml"
+						android:layout_width="0dp"
+						android:layout_height="80dp"
+						android:layout_columnWeight="1"
+						android:layout_margin="4dp"
+						android:backgroundTint="@color/peach_secondary"
+						android:text="750ml\n🍶"
+						android:textColor="@color/white"
+						android:textSize="14sp" />
+
+					<Button
+						android:id="@+id/btn_1000ml"
+						android:layout_width="0dp"
+						android:layout_height="80dp"
+						android:layout_columnWeight="1"
+						android:layout_margin="4dp"
+						android:backgroundTint="@color/soft_orange_secondary"
+						android:text="1000ml\n🍼"
+						android:textColor="@color/white"
+						android:textSize="14sp" />
+
+				</GridLayout>
+
+				<!-- Custom Volume Input Section -->
+				<TextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="Or enter custom amount:"
+					android:textColor="@color/dark_text"
+					android:textSize="14sp"
+					android:textStyle="bold"
+					android:layout_marginTop="16dp"
+					android:layout_marginBottom="8dp" />
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:gravity="center_vertical">
+
+					<EditText
+						android:id="@+id/edit_custom_volume"
+						android:layout_width="0dp"
+						android:layout_height="50dp"
+						android:layout_weight="1"
+						android:background="@android:drawable/edit_text"
+						android:hint="Enter volume (ml)"
+						android:inputType="number"
+						android:maxLength="5"
+						android:padding="12dp"
+						android:textSize="16sp"
+						android:layout_marginEnd="8dp" />
+
+					<Button
+						android:id="@+id/btn_add_custom"
+						android:layout_width="wrap_content"
+						android:layout_height="50dp"
+						android:backgroundTint="@color/purple_primary"
+						android:text="Add"
+						android:textColor="@color/white"
+						android:textSize="14sp"
+						android:minWidth="80dp" />
+
+				</LinearLayout>
+
+				<!-- Quick Suggestions -->
+				<TextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="Quick suggestions:"
+					android:textColor="@color/dark_text"
+					android:textSize="12sp"
+					android:layout_marginTop="8dp"
+					android:layout_marginBottom="4dp" />
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:gravity="center">
+
+					<Button
+						android:id="@+id/btn_suggest_100"
+						android:layout_width="0dp"
+						android:layout_height="32dp"
+						android:layout_weight="1"
+						android:layout_margin="2dp"
+						android:backgroundTint="@color/light_gray_bg"
+						android:text="100ml"
+						android:textColor="@color/dark_text"
+						android:textSize="10sp"
+						style="?android:attr/buttonStyleSmall" />
+
+					<Button
+						android:id="@+id/btn_suggest_200"
+						android:layout_width="0dp"
+						android:layout_height="32dp"
+						android:layout_weight="1"
+						android:layout_margin="2dp"
+						android:backgroundTint="@color/light_gray_bg"
+						android:text="200ml"
+						android:textColor="@color/dark_text"
+						android:textSize="10sp"
+						style="?android:attr/buttonStyleSmall" />
+
+					<Button
+						android:id="@+id/btn_suggest_300"
+						android:layout_width="0dp"
+						android:layout_height="32dp"
+						android:layout_weight="1"
+						android:layout_margin="2dp"
+						android:backgroundTint="@color/light_gray_bg"
+						android:text="300ml"
+						android:textColor="@color/dark_text"
+						android:textSize="10sp"
+						style="?android:attr/buttonStyleSmall" />
+
+					<Button
+						android:id="@+id/btn_suggest_600"
+						android:layout_width="0dp"
+						android:layout_height="32dp"
+						android:layout_weight="1"
+						android:layout_margin="2dp"
+						android:backgroundTint="@color/light_gray_bg"
+						android:text="600ml"
+						android:textColor="@color/dark_text"
+						android:textSize="10sp"
+						style="?android:attr/buttonStyleSmall" />
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+			<!-- Calendar Section -->
+			<TextView
+				android:id="@+id/text_month"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="24dp"
+				android:layout_marginTop="16dp"
+				android:layout_marginEnd="24dp"
+				android:gravity="center"
+				android:textColor="@color/dark_text"
+				android:textSize="18sp"
+				android:textStyle="bold" />
+
+			<!-- Day headers -->
+			<LinearLayout
+				android:id="@+id/day_headers"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="24dp"
+				android:layout_marginEnd="24dp"
+				android:layout_marginTop="8dp"
+				android:orientation="horizontal">
+
+				<TextView
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:text="Sun"
+					android:textColor="@color/dark_text"
+					android:textSize="12sp"
+					android:textStyle="bold" />
+
+				<TextView
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:text="Mon"
+					android:textColor="@color/dark_text"
+					android:textSize="12sp"
+					android:textStyle="bold" />
+
+				<TextView
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:text="Tue"
+					android:textColor="@color/dark_text"
+					android:textSize="12sp"
+					android:textStyle="bold" />
+
+				<TextView
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:text="Wed"
+					android:textColor="@color/dark_text"
+					android:textSize="12sp"
+					android:textStyle="bold" />
+
+				<TextView
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:text="Thu"
+					android:textColor="@color/dark_text"
+					android:textSize="12sp"
+					android:textStyle="bold" />
+
+				<TextView
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:text="Fri"
+					android:textColor="@color/dark_text"
+					android:textSize="12sp"
+					android:textStyle="bold" />
+
+				<TextView
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:text="Sat"
+					android:textColor="@color/dark_text"
+					android:textSize="12sp"
+					android:textStyle="bold" />
+
+			</LinearLayout>
+
+			<androidx.recyclerview.widget.RecyclerView
+				android:id="@+id/recycler_calendar"
+				android:layout_width="match_parent"
+				android:layout_height="350dp"
+				android:layout_marginStart="24dp"
+				android:layout_marginEnd="24dp"
+				android:layout_marginTop="8dp"
+				android:background="@color/off_white_bg"
+				android:padding="4dp"
+				android:nestedScrollingEnabled="false"
+				tools:listitem="@layout/item_calendar_day" />
+
+			<!-- Today's Intake History -->
+			<LinearLayout
+				android:id="@+id/card_intake_history"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="24dp"
+				android:layout_marginTop="16dp"
+				android:layout_marginEnd="24dp"
+				android:background="@drawable/bg_card"
+				android:orientation="vertical"
+				android:padding="16dp">
+
+				<TextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="Today's Intake History"
+					android:textColor="@color/dark_text"
+					android:textSize="18sp"
+					android:textStyle="bold"
+					android:layout_marginBottom="12dp" />
+
+				<androidx.recyclerview.widget.RecyclerView
+					android:id="@+id/recycler_intake_history"
+					android:layout_width="match_parent"
+					android:layout_height="200dp"
+					android:nestedScrollingEnabled="false" />
+
+			</LinearLayout>
+
+			<!-- Settings Card -->
+			<LinearLayout
+				android:id="@+id/card_settings"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="24dp"
+				android:layout_marginTop="16dp"
+				android:layout_marginEnd="24dp"
+				android:layout_marginBottom="80dp"
+				android:background="@drawable/bg_card"
+				android:orientation="vertical"
+				android:padding="16dp">
+
+				<TextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="Settings"
+					android:textColor="@color/dark_text"
+					android:textSize="18sp"
+					android:textStyle="bold"
+					android:layout_marginBottom="12dp" />
+
+				<TextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="Daily Goal (ml)"
+					android:textColor="@color/dark_text"
+					android:textStyle="bold"
+					android:layout_marginBottom="8dp" />
+
+				<Spinner
+					android:id="@+id/spinner_daily_goal"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="16dp" />
+
+				<TextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="Reminder Interval"
+					android:textColor="@color/dark_text"
+					android:textStyle="bold"
+					android:layout_marginBottom="8dp" />
+
+				<Spinner
+					android:id="@+id/spinner_interval"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="16dp" />
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:gravity="center_vertical">
+
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:text="Notifications"
+						android:textColor="@color/dark_text"
+						android:textStyle="bold" />
+
+					<Switch
+						android:id="@+id/switch_notifications"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content" />
+
+				</LinearLayout>
+
+				<Button
+					android:id="@+id/btn_test_notification"
+					android:layout_width="match_parent"
+					android:layout_height="50dp"
+					android:layout_marginTop="12dp"
+					android:backgroundTint="@color/purple_primary"
+					android:text="Test Notification"
+					android:textColor="@color/white"
+					android:textSize="14sp" />
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="8dp"
+					android:orientation="horizontal">
+
+					<Button
+						android:id="@+id/btn_test_morning"
+						android:layout_width="0dp"
+						android:layout_height="40dp"
+						android:layout_weight="1"
+						android:layout_marginEnd="4dp"
+						android:backgroundTint="@color/teal_primary"
+						android:text="Morning"
+						android:textColor="@color/white"
+						android:textSize="12sp" />
+
+					<Button
+						android:id="@+id/btn_test_afternoon"
+						android:layout_width="0dp"
+						android:layout_height="40dp"
+						android:layout_weight="1"
+						android:layout_marginStart="2dp"
+						android:layout_marginEnd="2dp"
+						android:backgroundTint="@color/peach_secondary"
+						android:text="Afternoon"
+						android:textColor="@color/white"
+						android:textSize="12sp" />
+
+					<Button
+						android:id="@+id/btn_test_evening"
+						android:layout_width="0dp"
+						android:layout_height="40dp"
+						android:layout_weight="1"
+						android:layout_marginStart="4dp"
+						android:backgroundTint="@color/soft_orange_secondary"
+						android:text="Evening"
+						android:textColor="@color/white"
+						android:textSize="12sp" />
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+		</LinearLayout>
+
+	</ScrollView>
+
+	<LinearLayout
+		android:id="@+id/bottom_nav"
+		android:layout_width="0dp"
+		android:layout_height="50dp"
+		android:background="#FFFFFF"
+		android:elevation="8dp"
+		android:orientation="horizontal"
+		android:paddingTop="4dp"
+		android:paddingBottom="4dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent">
+
+		<LinearLayout
+			android:id="@+id/nav_home"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:clickable="true"
+			android:focusable="true"
+			android:gravity="center"
+			android:orientation="vertical"
+			android:background="?android:attr/selectableItemBackground">
+
+			<ImageView
+				android:layout_width="20dp"
+				android:layout_height="20dp"
+				android:src="@drawable/ic_nav_home"
+				android:scaleType="centerInside" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Home"
+				android:textSize="10sp"
+				android:textColor="#666666"
+				android:layout_marginTop="2dp" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/nav_habits"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:clickable="true"
+			android:focusable="true"
+			android:gravity="center"
+			android:orientation="vertical"
+			android:background="?android:attr/selectableItemBackground">
+
+			<ImageView
+				android:layout_width="20dp"
+				android:layout_height="20dp"
+				android:src="@drawable/ic_nav_habits"
+				android:scaleType="centerInside" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Habits"
+				android:textSize="10sp"
+				android:textColor="#666666"
+				android:layout_marginTop="2dp" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/nav_mood"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:clickable="true"
+			android:focusable="true"
+			android:gravity="center"
+			android:orientation="vertical"
+			android:background="?android:attr/selectableItemBackground">
+
+			<ImageView
+				android:layout_width="20dp"
+				android:layout_height="20dp"
+				android:src="@drawable/ic_nav_mood"
+				android:scaleType="centerInside" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Mood"
+				android:textSize="10sp"
+				android:textColor="#666666"
+				android:layout_marginTop="2dp" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/nav_hydration"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:clickable="true"
+			android:focusable="true"
+			android:gravity="center"
+			android:orientation="vertical"
+			android:background="?android:attr/selectableItemBackground">
+
+			<ImageView
+				android:layout_width="20dp"
+				android:layout_height="20dp"
+				android:src="@drawable/ic_nav_water"
+				android:scaleType="centerInside"
+				app:tint="@color/sky_blue_accent" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Water"
+				android:textSize="10sp"
+				android:textColor="@color/sky_blue_accent"
+				android:textStyle="bold"
+				android:layout_marginTop="2dp" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/nav_settings"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:clickable="true"
+			android:focusable="true"
+			android:gravity="center"
+			android:orientation="vertical"
+			android:background="?android:attr/selectableItemBackground">
+
+			<ImageView
+				android:layout_width="20dp"
+				android:layout_height="20dp"
+				android:src="@drawable/ic_nav_settings"
+				android:scaleType="centerInside" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Settings"
+				android:textSize="10sp"
+				android:textColor="#666666"
+				android:layout_marginTop="2dp" />
+		</LinearLayout>
+
+	</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

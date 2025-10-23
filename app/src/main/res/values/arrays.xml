@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="hydration_intervals">
+		<item>@string/hydration_intervals_1h</item>
+		<item>@string/hydration_intervals_2h</item>
+		<item>@string/hydration_intervals_3h</item>
+	</string-array>
+</resources>
+
+

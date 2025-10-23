@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/main"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/off_white_bg"
+	tools:context=".MainActivity">
+
+	<include
+		android:id="@+id/top_nav_include"
+		layout="@layout/include_top_nav"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent" />
+
+	<TextView
+		android:id="@+id/text_greeting"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="24dp"
+		android:layout_marginTop="16dp"
+		android:layout_marginEnd="24dp"
+		android:fontFamily="@font/adlam_display"
+		android:text="@string/greeting_morning"
+		android:textColor="@color/material_dynamic_tertiary40"
+		android:textSize="22sp"
+		android:textStyle="bold"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.0"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/top_nav_include" />
+
+	<!-- Today's Summary Widgets -->
+	<LinearLayout
+		android:id="@+id/layout_today_summary"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="24dp"
+		android:layout_marginTop="24dp"
+		android:layout_marginEnd="24dp"
+		android:orientation="vertical"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/text_greeting">
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="Today's Summary"
+			android:textColor="@color/dark_text"
+			android:textSize="18sp"
+			android:textStyle="bold"
+			android:layout_marginBottom="12dp" />
+
+		<!-- Mood Widget -->
+		<LinearLayout
+			android:id="@+id/widget_mood"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@drawable/bg_card"
+			android:orientation="horizontal"
+			android:padding="16dp"
+			android:layout_marginBottom="8dp"
+			android:gravity="center_vertical"
+			android:clickable="true"
+			android:focusable="true">
+
+			<ImageView
+				android:layout_width="32dp"
+				android:layout_height="32dp"
+				android:src="@drawable/ic_mood_happy"
+				android:layout_marginEnd="16dp" />
+
+			<LinearLayout
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:orientation="vertical">
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="Today's Mood"
+					android:textColor="@color/dark_text"
+					android:textSize="14sp"
+					android:textStyle="bold" />
+
+				<LinearLayout
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:gravity="center_vertical"
+					android:layout_marginTop="4dp">
+
+					<TextView
+						android:id="@+id/text_today_mood_emoji"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="😐"
+						android:textSize="24sp"
+						android:layout_marginEnd="8dp" />
+
+					<TextView
+						android:id="@+id/text_today_mood_name"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Not set"
+						android:textColor="@color/soft_orange_secondary"
+						android:textSize="14sp"
+						android:textStyle="bold" />
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Tap to update"
+				android:textColor="@color/dark_text"
+				android:textSize="12sp"
+				android:alpha="0.7" />
+
+		</LinearLayout>
+
+		<!-- Hydration Widget -->
+		<LinearLayout
+			android:id="@+id/widget_hydration"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@drawable/bg_card"
+			android:orientation="horizontal"
+			android:padding="16dp"
+			android:layout_marginBottom="8dp"
+			android:gravity="center_vertical"
+			android:clickable="true"
+			android:focusable="true">
+
+			<ImageView
+				android:layout_width="32dp"
+				android:layout_height="32dp"
+				android:src="@drawable/ic_water"
+				android:layout_marginEnd="16dp" />
+
+			<LinearLayout
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:orientation="vertical">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:gravity="center_vertical">
+
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:text="Hydration"
+						android:textColor="@color/dark_text"
+						android:textSize="14sp"
+						android:textStyle="bold" />
+
+					<TextView
+						android:id="@+id/text_hydration_percentage"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="0%"
+						android:textColor="@color/sky_blue_accent"
+						android:textSize="14sp"
+						android:textStyle="bold" />
+
+				</LinearLayout>
+
+				<ProgressBar
+					android:id="@+id/progress_hydration_widget"
+					style="@android:style/Widget.ProgressBar.Horizontal"
+					android:layout_width="match_parent"
+					android:layout_height="8dp"
+					android:layout_marginTop="4dp"
+					android:layout_marginBottom="4dp"
+					android:max="100"
+					android:progress="0"
+					android:progressTint="@color/sky_blue_accent" />
+
+				<TextView
+					android:id="@+id/text_hydration_amount"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="0 ml / 2000 ml"
+					android:textColor="@color/dark_text"
+					android:textSize="12sp" />
+
+			</LinearLayout>
+
+		</LinearLayout>
+
+		<!-- Habits Widget -->
+		<LinearLayout
+			android:id="@+id/widget_habits"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@drawable/bg_card"
+			android:orientation="horizontal"
+			android:padding="16dp"
+			android:layout_marginBottom="8dp"
+			android:gravity="center_vertical"
+			android:clickable="true"
+			android:focusable="true">
+
+			<ImageView
+				android:layout_width="32dp"
+				android:layout_height="32dp"
+				android:src="@drawable/ic_habit_check"
+				android:layout_marginEnd="16dp" />
+
+			<LinearLayout
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:orientation="vertical">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:gravity="center_vertical">
+
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:text="Daily Habits"
+						android:textColor="@color/dark_text"
+						android:textSize="14sp"
+						android:textStyle="bold" />
+
+					<TextView
+						android:id="@+id/text_habits_percentage"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="0%"
+						android:textColor="@color/teal_primary"
+						android:textSize="14sp"
+						android:textStyle="bold" />
+
+				</LinearLayout>
+
+				<ProgressBar
+					android:id="@+id/progress_habits_widget"
+					style="@android:style/Widget.ProgressBar.Horizontal"
+					android:layout_width="match_parent"
+					android:layout_height="8dp"
+					android:layout_marginTop="4dp"
+					android:layout_marginBottom="4dp"
+					android:max="100"
+					android:progress="0"
+					android:progressTint="@color/teal_primary" />
+
+				<TextView
+					android:id="@+id/text_habits_count"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="0 / 0 completed"
+					android:textColor="@color/dark_text"
+					android:textSize="12sp" />
+
+			</LinearLayout>
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+	<GridLayout
+		android:id="@+id/quick_actions"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="24dp"
+		android:layout_marginTop="24dp"
+		android:layout_marginEnd="24dp"
+		android:columnCount="2"
+		android:rowCount="3"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.0"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/layout_today_summary">
+
+		<Button
+			android:id="@+id/button_my_habits"
+			android:layout_width="151dp"
+			android:layout_height="63dp"
+			android:layout_row="0"
+			android:layout_column="0"
+			android:layout_columnWeight="1"
+			android:layout_margin="8dp"
+			android:backgroundTint="@color/teal_primary"
+			android:text="@string/my_habits"
+			android:textColor="@color/white"
+			android:textSize="16sp" />
+
+		<Button
+			android:id="@+id/button_mood_journal"
+			android:layout_width="174dp"
+			android:layout_height="63dp"
+			android:layout_row="0"
+			android:layout_column="1"
+			android:layout_columnWeight="1"
+			android:layout_margin="8dp"
+			android:backgroundTint="@color/peach_secondary"
+			android:text="@string/mood_journal"
+			android:textColor="@color/white"
+			android:textSize="16sp" />
+
+		<Button
+			android:id="@+id/button_hydration"
+			android:layout_width="149dp"
+			android:layout_height="60dp"
+			android:layout_row="1"
+			android:layout_column="0"
+			android:layout_columnWeight="1"
+			android:layout_margin="8dp"
+			android:backgroundTint="@color/sky_blue_accent"
+			android:text="@string/hydration"
+			android:textColor="@color/white"
+			android:textSize="16sp" />
+
+		<Button
+			android:id="@+id/button_analytics"
+			android:layout_width="176dp"
+			android:layout_height="65dp"
+			android:layout_row="1"
+			android:layout_column="1"
+			android:layout_columnWeight="1"
+			android:layout_margin="8dp"
+			android:backgroundTint="@color/purple_primary"
+			android:text="Analytics"
+			android:textColor="@color/white"
+			android:textSize="16sp" />
+
+		<Button
+			android:id="@+id/button_settings"
+			android:layout_width="176dp"
+			android:layout_height="65dp"
+			android:layout_row="2"
+			android:layout_column="0"
+			android:layout_columnSpan="2"
+			android:layout_columnWeight="1"
+			android:layout_margin="8dp"
+			android:backgroundTint="@color/soft_orange_secondary"
+			android:text="@string/settings"
+			android:textColor="@color/white"
+			android:textSize="16sp" />
+
+	</GridLayout>
+
+	<LinearLayout
+		android:id="@+id/bottom_nav"
+		android:layout_width="0dp"
+		android:layout_height="50dp"
+		android:background="#FFFFFF"
+		android:elevation="8dp"
+		android:orientation="horizontal"
+		android:paddingTop="4dp"
+		android:paddingBottom="4dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent">
+
+		<LinearLayout
+			android:id="@+id/nav_home"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:clickable="true"
+			android:focusable="true"
+			android:gravity="center"
+			android:orientation="vertical"
+			android:background="?android:attr/selectableItemBackground">
+
+			<ImageView
+				android:layout_width="20dp"
+				android:layout_height="20dp"
+				android:src="@drawable/ic_nav_home"
+				android:scaleType="centerInside"
+				app:tint="@color/teal_primary" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Home"
+				android:textSize="10sp"
+				android:textColor="@color/teal_primary"
+				android:textStyle="bold"
+				android:layout_marginTop="2dp" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/nav_habits"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:clickable="true"
+			android:focusable="true"
+			android:gravity="center"
+			android:orientation="vertical"
+			android:background="?android:attr/selectableItemBackground">
+
+			<ImageView
+				android:layout_width="20dp"
+				android:layout_height="20dp"
+				android:src="@drawable/ic_nav_habits"
+				android:scaleType="centerInside" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Habits"
+				android:textSize="10sp"
+				android:textColor="#666666"
+				android:layout_marginTop="2dp" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/nav_mood"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:clickable="true"
+			android:focusable="true"
+			android:gravity="center"
+			android:orientation="vertical"
+			android:background="?android:attr/selectableItemBackground">
+
+			<ImageView
+				android:layout_width="20dp"
+				android:layout_height="20dp"
+				android:src="@drawable/ic_nav_mood"
+				android:scaleType="centerInside" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Mood"
+				android:textSize="10sp"
+				android:textColor="#666666"
+				android:layout_marginTop="2dp" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/nav_hydration"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:clickable="true"
+			android:focusable="true"
+			android:gravity="center"
+			android:orientation="vertical"
+			android:background="?android:attr/selectableItemBackground">
+
+			<ImageView
+				android:layout_width="20dp"
+				android:layout_height="20dp"
+				android:src="@drawable/ic_nav_water"
+				android:scaleType="centerInside" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Water"
+				android:textSize="10sp"
+				android:textColor="#666666"
+				android:layout_marginTop="2dp" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/nav_settings"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:clickable="true"
+			android:focusable="true"
+			android:gravity="center"
+			android:orientation="vertical"
+			android:background="?android:attr/selectableItemBackground">
+
+			<ImageView
+				android:layout_width="20dp"
+				android:layout_height="20dp"
+				android:src="@drawable/ic_nav_settings"
+				android:scaleType="centerInside" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Settings"
+				android:textSize="10sp"
+				android:textColor="#666666"
+				android:layout_marginTop="2dp" />
+		</LinearLayout>
+
+	</LinearLayout>
+
+	<ImageView
+		android:id="@+id/imageView9"
+		android:layout_width="215dp"
+		android:layout_height="95dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.445"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintVertical_bias="0.906"
+		app:srcCompat="@drawable/logo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

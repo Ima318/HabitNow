@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.HabitNow" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/teal_primary</item>
+        <item name="colorSecondary">@color/soft_orange_secondary</item>
+        <item name="colorTertiary">@color/sky_blue_accent</item>
+        <item name="android:colorBackground">@color/off_white_bg</item>
+        <item name="android:textColor">@color/dark_text</item>
+    </style>
+
+    <style name="Theme.HabitNow" parent="Base.Theme.HabitNow" />
+</resources>

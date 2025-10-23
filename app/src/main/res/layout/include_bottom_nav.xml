@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/bottom_nav"
+	android:layout_width="match_parent"
+	android:layout_height="56dp"
+	android:orientation="horizontal"
+	android:gravity="center"
+	android:background="@color/light_gray_bg"
+	android:paddingStart="8dp"
+	android:paddingEnd="8dp"
+	app:layout_constraintBottom_toBottomOf="parent"
+	app:layout_constraintStart_toStartOf="parent"
+	app:layout_constraintEnd_toEndOf="parent">
+
+
+
+	<ImageButton
+		android:id="@+id/nav_home"
+		android:layout_width="0dp"
+		android:layout_height="match_parent"
+		android:layout_weight="1"
+		android:backgroundTint="@color/teal_primary"
+		android:src="@drawable/home"
+		android:scaleType="fitCenter"
+		android:background="@drawable/rounded_button"
+		android:contentDescription="@string/home"
+		android:padding="12dp"
+		/>
+
+
+	<ImageButton
+		android:id="@+id/nav_habits"
+		android:layout_width="0dp"
+		android:layout_height="match_parent"
+		android:layout_weight="1"
+		android:src="@drawable/habitn"
+		android:scaleType="fitCenter"
+		android:background="@drawable/rounded_button"
+		android:backgroundTint="@color/teal_primary" />
+
+	<ImageButton
+		android:id="@+id/nav_mood"
+		android:layout_width="0dp"
+		android:layout_height="match_parent"
+		android:layout_weight="1"
+		android:src="@drawable/moodn"
+		android:scaleType="fitCenter"
+		android:textColor="@color/white"
+		android:background="@drawable/rounded_button"
+		android:backgroundTint="@color/teal_primary" />
+
+	<ImageButton
+		android:id="@+id/nav_hydration"
+		android:layout_width="0dp"
+		android:layout_height="match_parent"
+		android:layout_weight="1"
+		android:src="@drawable/watern"
+		android:scaleType="fitCenter"
+		android:textColor="@color/white"
+		android:background="@drawable/rounded_button"
+		android:backgroundTint="@color/teal_primary" />
+
+	<ImageButton
+		android:id="@+id/nav_settings"
+		android:layout_width="0dp"
+		android:layout_height="match_parent"
+		android:layout_weight="1"
+		android:src="@drawable/settings"
+		android:scaleType="fitCenter"
+		android:textColor="@color/white"
+		android:background="@drawable/rounded_button"
+		android:backgroundTint="@color/teal_primary" />
+
+</LinearLayout>
+
+

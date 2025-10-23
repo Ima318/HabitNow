@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark theme specific colors -->
+    <color name="off_white_bg">@color/dark_bg</color>
+    <color name="light_gray_bg">@color/dark_surface</color>
+    <color name="dark_text">@color/light_text</color>
+
+    <!-- Override specific colors for dark theme -->
+    <color name="teal_primary">@color/dark_teal_primary</color>
+    <color name="soft_orange_secondary">@color/dark_soft_orange</color>
+    <color name="sky_blue_accent">@color/dark_sky_blue</color>
+    <color name="peach_secondary">@color/dark_peach</color>
+</resources>

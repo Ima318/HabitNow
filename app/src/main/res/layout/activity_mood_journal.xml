@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/mood_root"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/off_white_bg"
+	tools:context=".MoodJournalActivity">
+
+	<include
+		android:id="@+id/top_nav_include"
+		layout="@layout/include_top_nav"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent" />
+
+	<ScrollView
+		android:id="@+id/scroll_view"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:fillViewport="true"
+		app:layout_constraintTop_toBottomOf="@id/top_nav_include"
+		app:layout_constraintBottom_toTopOf="@id/bottom_nav"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+			<TextView
+				android:id="@+id/text_title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="24dp"
+				android:layout_marginTop="24dp"
+				android:layout_marginEnd="24dp"
+				android:fontFamily="@font/adlam_display"
+				android:text="@string/mood_journal"
+				android:textColor="@color/soft_orange_secondary"
+				android:textSize="22sp"
+				android:textStyle="bold" />
+
+			<TextView
+				android:id="@+id/text_month"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="24dp"
+				android:layout_marginTop="12dp"
+				android:layout_marginEnd="24dp"
+				android:gravity="center"
+				android:textColor="@color/dark_text"
+				android:textSize="18sp"
+				android:textStyle="bold" />
+
+			<!-- Day headers -->
+			<LinearLayout
+				android:id="@+id/day_headers"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="24dp"
+				android:layout_marginEnd="24dp"
+				android:layout_marginTop="8dp"
+				android:orientation="horizontal">
+
+				<TextView
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:text="Sun"
+					android:textColor="@color/dark_text"
+					android:textSize="12sp"
+					android:textStyle="bold" />
+
+				<TextView
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:text="Mon"
+					android:textColor="@color/dark_text"
+					android:textSize="12sp"
+					android:textStyle="bold" />
+
+				<TextView
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:text="Tue"
+					android:textColor="@color/dark_text"
+					android:textSize="12sp"
+					android:textStyle="bold" />
+
+				<TextView
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:text="Wed"
+					android:textColor="@color/dark_text"
+					android:textSize="12sp"
+					android:textStyle="bold" />
+
+				<TextView
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:text="Thu"
+					android:textColor="@color/dark_text"
+					android:textSize="12sp"
+					android:textStyle="bold" />
+
+				<TextView
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:text="Fri"
+					android:textColor="@color/dark_text"
+					android:textSize="12sp"
+					android:textStyle="bold" />
+
+				<TextView
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:gravity="center"
+					android:text="Sat"
+					android:textColor="@color/dark_text"
+					android:textSize="12sp"
+					android:textStyle="bold" />
+
+			</LinearLayout>
+
+			<androidx.recyclerview.widget.RecyclerView
+				android:id="@+id/recycler_calendar"
+				android:layout_width="match_parent"
+				android:layout_height="400dp"
+				android:layout_marginStart="24dp"
+				android:layout_marginEnd="24dp"
+				android:layout_marginTop="8dp"
+				android:background="@color/off_white_bg"
+				android:padding="4dp"
+				android:nestedScrollingEnabled="false"
+				tools:listitem="@layout/item_calendar_day" />
+
+			<CheckBox
+				android:id="@+id/checkbox_filter_day"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="24dp"
+				android:layout_marginTop="8dp"
+				android:text="Show moods for selected day only"
+				android:textColor="@color/dark_text" />
+
+			<androidx.recyclerview.widget.RecyclerView
+				android:id="@+id/recycler_moods"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="24dp"
+				android:layout_marginEnd="24dp"
+				android:layout_marginBottom="80dp"
+				android:nestedScrollingEnabled="false" />
+
+		</LinearLayout>
+
+	</ScrollView>
+
+	<com.google.android.material.floatingactionbutton.FloatingActionButton
+		android:id="@+id/fab_log_mood"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_margin="24dp"
+		android:contentDescription="Log Mood"
+		android:src="@drawable/ic_launcher_foreground"
+		app:backgroundTint="@color/soft_orange_secondary"
+		app:layout_constraintBottom_toTopOf="@id/bottom_nav"
+		app:layout_constraintEnd_toEndOf="parent" />
+
+	<LinearLayout
+		android:id="@+id/bottom_nav"
+		android:layout_width="0dp"
+		android:layout_height="50dp"
+		android:background="#FFFFFF"
+		android:elevation="8dp"
+		android:orientation="horizontal"
+		android:paddingTop="4dp"
+		android:paddingBottom="4dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent">
+
+		<LinearLayout
+			android:id="@+id/nav_home"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:clickable="true"
+			android:focusable="true"
+			android:gravity="center"
+			android:orientation="vertical"
+			android:background="?android:attr/selectableItemBackground">
+
+			<ImageView
+				android:layout_width="20dp"
+				android:layout_height="20dp"
+				android:src="@drawable/ic_nav_home"
+				android:scaleType="centerInside" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Home"
+				android:textSize="10sp"
+				android:textColor="#666666"
+				android:layout_marginTop="2dp" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/nav_habits"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:clickable="true"
+			android:focusable="true"
+			android:gravity="center"
+			android:orientation="vertical"
+			android:background="?android:attr/selectableItemBackground">
+
+			<ImageView
+				android:layout_width="20dp"
+				android:layout_height="20dp"
+				android:src="@drawable/ic_nav_habits"
+				android:scaleType="centerInside" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Habits"
+				android:textSize="10sp"
+				android:textColor="#666666"
+				android:layout_marginTop="2dp" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/nav_mood"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:clickable="true"
+			android:focusable="true"
+			android:gravity="center"
+			android:orientation="vertical"
+			android:background="?android:attr/selectableItemBackground">
+
+			<ImageView
+				android:layout_width="20dp"
+				android:layout_height="20dp"
+				android:src="@drawable/ic_nav_mood"
+				android:scaleType="centerInside"
+				app:tint="@color/peach_secondary" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Mood"
+				android:textSize="10sp"
+				android:textColor="@color/peach_secondary"
+				android:textStyle="bold"
+				android:layout_marginTop="2dp" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/nav_hydration"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:clickable="true"
+			android:focusable="true"
+			android:gravity="center"
+			android:orientation="vertical"
+			android:background="?android:attr/selectableItemBackground">
+
+			<ImageView
+				android:layout_width="20dp"
+				android:layout_height="20dp"
+				android:src="@drawable/ic_nav_water"
+				android:scaleType="centerInside" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Water"
+				android:textSize="10sp"
+				android:textColor="#666666"
+				android:layout_marginTop="2dp" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/nav_settings"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:clickable="true"
+			android:focusable="true"
+			android:gravity="center"
+			android:orientation="vertical"
+			android:background="?android:attr/selectableItemBackground">
+
+			<ImageView
+				android:layout_width="20dp"
+				android:layout_height="20dp"
+				android:src="@drawable/ic_nav_settings"
+				android:scaleType="centerInside" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Settings"
+				android:textSize="10sp"
+				android:textColor="#666666"
+				android:layout_marginTop="2dp" />
+		</LinearLayout>
+
+	</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

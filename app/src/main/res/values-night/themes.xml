@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Dark theme configuration -->
+    <style name="Base.Theme.HabitNow" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <item name="colorPrimary">@color/dark_teal_primary</item>
+        <item name="colorSecondary">@color/dark_soft_orange</item>
+        <item name="colorTertiary">@color/dark_sky_blue</item>
+        <item name="android:colorBackground">@color/dark_bg</item>
+        <item name="android:textColor">@color/light_text</item>
+        <item name="android:textColorSecondary">@color/light_text_secondary</item>
+        <item name="colorSurface">@color/dark_surface</item>
+        <item name="colorOnSurface">@color/light_text</item>
+    </style>
+
+    <style name="Theme.HabitNow" parent="Base.Theme.HabitNow" />
+</resources>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose Theme"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="?android:textColor"
+        android:layout_marginBottom="16dp"
+        android:gravity="center" />
+
+    <RadioGroup
+        android:id="@+id/radio_group_theme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp">
+
+        <RadioButton
+            android:id="@+id/radio_light_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Light Theme"
+            android:textSize="16sp"
+            android:textColor="?android:textColor"
+            android:padding="12dp" />
+
+        <RadioButton
+            android:id="@+id/radio_dark_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dark Theme"
+            android:textSize="16sp"
+            android:textColor="?android:textColor"
+            android:padding="12dp" />
+
+        <RadioButton
+            android:id="@+id/radio_system_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="System Default"
+            android:textSize="16sp"
+            android:textColor="?android:textColor"
+            android:padding="12dp" />
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/btn_cancel_theme"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:textColor="?colorPrimary"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btn_apply_theme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apply"
+            android:backgroundTint="?colorPrimary"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+</LinearLayout>
